@@ -4,6 +4,7 @@ import com.gustavo.api_indicadores_economicos_colombia.model.IndicadorEconomico;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -12,4 +13,9 @@ public interface IndicadorEconomicoRepository extends JpaRepository<IndicadorEco
     Optional<IndicadorEconomico> findByCodigo(String codigo);
 
     boolean existsByCodigo(String codigo);
+
+    List<IndicadorEconomico> findAllByOrderByFechaRegistroDesc();
+    
+    List<IndicadorEconomico> findByNombreContainingIgnoreCase(String nombre);
+
 }
